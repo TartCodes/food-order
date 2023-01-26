@@ -1,5 +1,6 @@
 import classes from "./Header.module.css";
 import meals from "/src/assets/images/meals.jpg";
+import Card from "../UI/Card";
 
 const Header = (props) => {
 	return (
@@ -10,8 +11,8 @@ const Header = (props) => {
 			</header>
 			<div className={classes["main-image"]}>
 				<img
-					className={classes.img}
 					src={meals}
+					alt="A table full of lots of food!"
 				></img>
 			</div>
 		</>
