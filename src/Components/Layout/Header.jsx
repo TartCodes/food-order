@@ -1,13 +1,13 @@
-import classes from "./Header.module.css";
 import meals from "/src/assets/images/meals.jpg";
-import Card from "../UI/Card";
+import classes from "./Header.module.css";
+import HeaderCartButton from "./HeaderCartButton";
 
 const Header = (props) => {
 	return (
 		<>
 			<header className={classes.header}>
 				<h1>ManyMeals</h1>
-				<button>Cart</button>
+				<HeaderCartButton />
 			</header>
 			<div className={classes["main-image"]}>
 				<img
