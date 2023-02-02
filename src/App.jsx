@@ -3,6 +3,7 @@ import Header from "./Components/Layout/Header";
 import Meals from "./Components/Meals/Meals";
 import { useState } from "react";
 import "./index.css";
+import CartProvider from "./store/CartProvider";
 
 function App() {
 	const [showCart, setShowCart] = useState(false);
@@ -14,13 +15,13 @@ function App() {
 	};
 
 	return (
-		<>
+		<CartProvider>
 			{showCart && <Cart onClose={hideCartHandler} />}
 			<Header onToggleCart={cartHandler} />
 			<main>
 				<Meals />
 			</main>
-		</>
+		</CartProvider>
 	);
 }
 
