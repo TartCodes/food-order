@@ -9,7 +9,13 @@ const defaultCartState = {
 const cartReducer = (state, action) => {
 	if (action.type === "ADD") {
 		//use .concat() instead of .push() bc push edits the old array while concat creates a new one, you want your state to be immutable
-		const updatedItems = state.items.concat();
+		const updatedItems = state.items.concat(action.item);
+		const updatedTotalAmount =
+			state.totalAmount + action.item.price * action.item.amount;
+		return {
+			items: updatedItems,
+			totalAmount: updatedTotalAmount
+		};
 	}
 
 	return defaultCartState;
