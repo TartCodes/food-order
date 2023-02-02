@@ -2,8 +2,8 @@ import Cart from "./Components/Cart/Cart";
 import Header from "./Components/Layout/Header";
 import Meals from "./Components/Meals/Meals";
 import { useState } from "react";
-import "./index.css";
 import CartProvider from "./store/CartProvider";
+import "./index.css";
 
 function App() {
 	const [showCart, setShowCart] = useState(false);
