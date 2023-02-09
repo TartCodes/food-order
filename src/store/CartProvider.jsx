@@ -3,7 +3,7 @@ import { useReducer } from "react";
 
 const defaultCartState = {
 	items: [],
-	totalAmount: 0
+	totalAmount: +0
 };
 
 const cartReducer = (state, action) => {
@@ -14,9 +14,7 @@ const cartReducer = (state, action) => {
 		const existingCartItemIndex = state.items.findIndex(
 			(item) => item.id === action.item.id
 		);
-
 		const existingCartItem = state.items[existingCartItemIndex];
-
 		let updatedItems;
 
 		if (existingCartItem) {
@@ -35,7 +33,6 @@ const cartReducer = (state, action) => {
 			totalAmount: updatedTotalAmount
 		};
 	}
-
 	if (action.type === "REMOVE") {
 		const existingCartItemIndex = state.items.findIndex(
 			(item) => item.id === action.id
@@ -48,13 +45,15 @@ const cartReducer = (state, action) => {
 		} else {
 			const updatedItem = { ...existingItem, amount: existingItem.amount - 1 };
 			updatedItems = [...state.items];
-			updatedItem[existingCartItemIndex] = updatedItem;
+			updatedItems[existingCartItemIndex] = updatedItem;
 		}
+
 		return {
 			items: updatedItems,
 			totalAmount: updatedTotalAmount
 		};
 	}
+
 	return defaultCartState;
 };
 
